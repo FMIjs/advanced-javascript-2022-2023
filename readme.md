@@ -5,7 +5,6 @@
 * [Gheorgi Penkov](https://www.linkedin.com/in/penkov/)
 * [Iliya Idakiev](https://www.linkedin.com/in/idakiev/)
 * [Aleksander Kostov](https://www.linkedin.com/in/aleksander-kostov-800509105/)
-* [Alex Petrov](https://www.linkedin.com/in/alex-petrov-4b76ba1b9/)
 
 <!-- ## Course Website from last year
 
