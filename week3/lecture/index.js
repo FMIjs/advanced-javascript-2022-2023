@@ -99,4 +99,31 @@ console.log(Object.getOwnPropertyNames(myfish));
 // var weird = Food.call(weird__proto, 'Mahi Mahi', 2400, 1)
 // weird.print()
 
+// mixins
+// horizontal method resolution -- not 
+//   Food                   Person
+//     |                       |
+//   Fish --- SwimMixin --- Swimmer
+
+// We are just adding the specific set of methods to the given "class"
+// ER Modelling
+
+
+var swimMixin = {
+    swimUp: function() {
+        // this --> the instance of the "class" this mixin has extended
+        console.log(this.amount + 'fish will swim up');
+        debugger;
+    },
+    swimDown: function() {
+        console.log(this.amount + 'fish will swim down');
+    }
+}
+
+Object.assign(Fish.prototype, swimMixin);
+
+var swimmingFish = new Fish(1200, 3)
+
+swimmingFish.swimUp();
+
 debugger;
