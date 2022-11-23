@@ -1,0 +1,5 @@
+!! this is a sample input
+which is to show >>
+how this all works !
+and some numbers here - 100
+there - 200
