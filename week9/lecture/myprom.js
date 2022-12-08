@@ -15,7 +15,7 @@ class MyPromise {
         let cb;
         while (cb = this.cbs.shift()) {          // process callbacks
             val = cb(val);        // if the returned value is Promise
-            if (val instanceof Promise) {     // defer the processing
+            if (val instanceof MyPromise) {     // defer the processing
                 return val.then( result => this.res(result)); 
             }
         }
