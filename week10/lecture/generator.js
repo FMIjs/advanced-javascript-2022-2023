@@ -11,6 +11,8 @@
 //     Providing a way to abstract away the details of iterating 
 //          over a data structure or sequence, making your code more readable and maintainable.//
 
+// classical Fibonnaci 
+
 function fib(cnt) {
     let current = 0
     let next = 1
@@ -19,7 +21,7 @@ function fib(cnt) {
     }
     return current
 }
-// console.log(fib(10))
+console.log(fib(10))
 
 /// now lets try with generator
 
@@ -36,8 +38,16 @@ let gen = fibgen()
 let cnt = 10;
 let res
 while (!(res = gen.next()).done) {
-    // console.log(res.value)
+    console.log(res.value)
 }
+
+// https://oeis.org/A000045 
+// 
+// Fibonacci numbers: F(n) = F(n-1) + F(n-2) with F(0) = 0 and F(1) = 1.
+// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584,
+// 4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811, ... 
+
+// lets see how we return back to the generator
 
 function* mgen(c) {
     let res = yield c * 2;
@@ -50,17 +60,7 @@ console.log(genobj.next(100).value)
 console.log(genobj.next(123).value)
 console.log(genobj.next(235).value)
 
-// https://oeis.org/A000045 
-// 
-// A000045 		
-// Fibonacci numbers: F(n) = F(n-1) + F(n-2) with F(0) = 0 and F(1) = 1.
-// (Formerly M0692 N0256) 		5475
-// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 
-// 144, 233, 377, 610, 987, 1597, 2584, 4181, 
-// 6765, 10946, 17711, 28657, 46368, 75025, 
-// 121393, 196418, 317811, 514229, 832040,  
-// 1346269, 2178309, 3524578, 5702887, 9227465, 
-// 14930352, 24157817, 39088169, 63245986, 102334155
+// now this put to practical means
 
 function* loadData() {
     // Load the data asynchronously and yield the result
@@ -98,8 +98,7 @@ function run(generator, val) {
 
 run(loadData())
 
-
-//////////////////////
+////////////////////////////////////////////////////////////////////////////
 
 function* iterateTree(node) {
     if (node.left) yield* iterateTree(node.left)
