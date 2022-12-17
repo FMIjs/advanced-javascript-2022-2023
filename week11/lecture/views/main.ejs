@@ -1,0 +1,29 @@
+<%- include('shared/header'); -%>
+  <h1>
+    <%= message %>
+  </h1>
+
+  <div id="content">
+    <div id="content-frame" data-custom-attr="HELLO WORLD">
+      <ul id="user-list">
+        <% users.forEach(function (user, index){ %>
+          <li class="user-list-item" data-index="<%= index %>">
+            <%= user %>
+          </li>
+          <% }); %>
+      </ul>
+
+      <form method="POST" action="/user" enctype="application/x-www-form-urlencoded">
+        <input id="user-index-input" type="hidden" name="index">
+        <input id="user-name-input" type="text" name="username" placeholder="User name">
+        <button id="add-user-button">Add user</button>
+      </form>
+
+      <form id="user-form">
+        <input id="user-index-input-2" type="hidden" name="index">
+        <input id="user-name-input-2" type="text" name="username" placeholder="User name">
+        <button id="add-user-button-2">Add user</button>
+      </form>
+    </div>
+  </div>
+  <%- include('shared/footer'); -%>
