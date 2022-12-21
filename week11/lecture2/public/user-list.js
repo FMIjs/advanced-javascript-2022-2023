@@ -36,8 +36,11 @@ export class UserList extends HTMLElement {
     let i = 0;
     for (const user of users) {
       const userLi = document.createElement('li');
-      userLi.setAttribute('data-index', i++);
-      userLi.innerHTML = user;
+      const userA = document.createElement('a');
+      userA.setAttribute('is', 'app-anchor');
+      userA.href = '/edit/' + i++;
+      userA.innerHTML = user;
+      userLi.appendChild(userA);
       userList.appendChild(userLi);
     }
   }
