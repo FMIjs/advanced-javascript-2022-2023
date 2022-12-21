@@ -30,7 +30,7 @@ export class AppComponent extends HTMLElement {
     const nav = this.#_shadowRoot.querySelector('#nav');
     nav.addEventListener('app-render', (e) => {
       router.render(e.detail);
-    })
+    });
   }
 }
 
