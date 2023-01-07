@@ -37,14 +37,19 @@ export class UserList extends HTMLElement {
   constructor() {
     super();
     this.#_shadowRoot = this.attachShadow({ mode: 'closed' });
+    this.isRenderScheduled = false;
     this.isLoading = false;
     this.users = [];
-    this.render();
   }
 
   render() {
-    const templateResult = renderUserListTemplate(this);
-    render(templateResult, this.#_shadowRoot);
+    if (this.isRenderScheduled) { return; }
+    this.isRenderScheduled = true;
+    Promise.resolve().then(() => {
+      const templateResult = renderUserListTemplate(this);
+      render(templateResult, this.#_shadowRoot);
+      this.isRenderScheduled = false;
+    });
   }
 
   loadUsers() {
