@@ -1,3 +1,3 @@
 export const environment = {
-  apiURL: 'https://google.bg/'
+  apiURL: 'http://localhost:8081'
 }

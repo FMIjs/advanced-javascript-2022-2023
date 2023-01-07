@@ -12,11 +12,11 @@ const corsOptions = {
 const app = express();
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static(path.resolve(__dirname, '../client/dist')));
 app.use('/users', userRouter);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve('./public/index.html'));
+  res.sendFile(path.resolve(__dirname, '../client/dist/index.html'));
 });
 
 app.listen(8081, () => {
