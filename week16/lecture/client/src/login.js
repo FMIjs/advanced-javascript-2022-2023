@@ -38,13 +38,15 @@ export class Login extends HTMLElement {
     fetch(`${environment.apiURL}/users?action=login`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        // 'access-token': token
       },
       credentials: 'include',
       body: JSON.stringify({ email, password })
     }).then(res => res.ok ? res.json() : null)
-      .then((user) => {
+      .then(({ user, token }) => {
         if (!user) { return void console.error('SHOW ERROR IN HTML'); }
+        console.log(token);
         this.state.user = user;
         this.router.navigate('/list');
       });

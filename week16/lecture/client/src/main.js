@@ -1,6 +1,21 @@
+
 import './app-anchor';
 import { Router } from './router';
 import { environment } from './environments/environment';
+
+try {
+  const worker = new Worker(environment.apiURL + '/worker.js');
+  worker.addEventListener('message', (message) => {
+    console.log(message.data);
+  });
+  worker.postMessage('start');
+
+  setTimeout(() => {
+    worker.postMessage('stop');
+  }, 5000);
+} catch (err) {
+  console.error('Error starting worker. User api server in order to start the worker!');
+}
 
 function createMainTemplate() {
   const templateString = `
