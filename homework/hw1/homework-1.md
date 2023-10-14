@@ -7,7 +7,7 @@
 
 Изразите и думите за филтриране да се държат държат локално и да може да се добавят и махат такива посредством крайната точка `condition`:
 - **POST** `localhost:8000/condition` за добавяне
-- **DELETE** `localhost:8000/condition/:id` за добавяне
+- **DELETE** `localhost:8000/condition/:id` за изтриване
 
 ### Предаване
 За предаване е създадено [задание в Moodle](https://learn.fmi.uni-sofia.bg/mod/assign/view.php?id=262895&forceview=1).
